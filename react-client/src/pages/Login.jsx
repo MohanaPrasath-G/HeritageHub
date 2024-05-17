@@ -34,7 +34,7 @@ function Login() {
                                     <label htmlFor="exampleInputPassword1" className="form-label custom-form-label">Password</label>
                                     <input type="password" className="form-control custom-form-control" id="exampleInputPassword1" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                 </div>
-                                <button type="submit" className="btn btn-primary custom-btn">Continue</button>
+                                <button type="submit" className="btn btn-primary custom-btn" onSubmit={handleLogin}>Continue</button>
                             </form>
                             <p className="mt-3 custom-link-text">Dont have an account? <Link to="/signup" className="custom-link">SignUp here</Link></p>
                         </div>

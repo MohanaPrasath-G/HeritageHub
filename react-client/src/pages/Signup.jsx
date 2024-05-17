@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function Signup() {
     const [email, setEmail] = useState('');
+    const [name,setName]=useState('')
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -15,7 +16,7 @@ function Signup() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:90/register', { email, password });
+            const response = await axios.post('http://localhost:90/register', {name, email, password });
             alert(response.data);
             // Handle successful signup (e.g., redirect to login)
         } catch (error) {
@@ -31,6 +32,10 @@ function Signup() {
                         <div className="card-body custom-card-body">
                             <h5 className="card-title custom-card-title">Sign Up</h5>
                             <form onSubmit={handleSignup}>
+                            <div className="mb-3">
+                                    <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Name</label>
+                                    <input type="text" className="form-control custom-form-control" id="exampleInputName" value={name} onChange={(e) => setName(e.target.value)} required />
+                                </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Email address</label>
                                     <input type="email" className="form-control custom-form-control" id="exampleInputEmail1" value={email} onChange={(e) => setEmail(e.target.value)} required />

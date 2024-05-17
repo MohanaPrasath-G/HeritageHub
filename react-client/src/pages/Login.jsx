@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import { useState } from 'react';
 import axios from 'axios';
@@ -6,12 +6,16 @@ import axios from 'axios';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
         try {
             const response = await axios.post('http://localhost:90/login', { email, password });
             alert(response.data.message);
+            navigate('/');
             // Handle successful login (e.g., store token, redirect)
         } catch (error) {
             alert(error.response.data);

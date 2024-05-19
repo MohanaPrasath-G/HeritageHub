@@ -37,6 +37,10 @@ function Signup() {
                             <form onSubmit={handleSignup}>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Email address</label>
+                                    <input type="email" className="form-control custom-form-control" id="exampleInputEmail1" value={name} onChange={(e) => setName(e.target.value)} required />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Email address</label>
                                     <input type="email" className="form-control custom-form-control" id="exampleInputEmail1" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 </div>
                                 <div className="mb-3">

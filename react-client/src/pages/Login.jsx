@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import { useState } from 'react';
 import axios from 'axios';
@@ -6,12 +6,16 @@ import axios from 'axios';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
         try {
             const response = await axios.post('http://localhost:90/login', { email, password });
             alert(response.data.message);
+            navigate('/');
             // Handle successful login (e.g., store token, redirect)
         } catch (error) {
             alert(error.response.data);
@@ -20,8 +24,6 @@ function Login() {
 
     return (
         <div className="container custom-container">
-            <div className="row justify-content-center mt-5">
-                <div className="col-md-6">
                     <div className="card custom-card">
                         <div className="card-body custom-card-body">
                             <h5 className="card-title custom-card-title">Login</h5>
@@ -39,8 +41,6 @@ function Login() {
                             <p className="mt-3 custom-link-text">Dont have an account? <Link to="/signup" className="custom-link">SignUp here</Link></p>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
     );
 }

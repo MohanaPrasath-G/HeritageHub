@@ -6,10 +6,15 @@ const port=90;
 
 const app = express()
 app.use(cors())
+
+app.use('/uploads', express.static('uploads'));
+
 const user=require('./routes/user')
+const post=require('./routes/post')
 
 app.use(express.json())
 app.use(user)
+app.use(post)
 
 app.get('/',(req,res)=>{
     res.send("Welcome Captain...")

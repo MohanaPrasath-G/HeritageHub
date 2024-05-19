@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import { useState } from 'react';
 import axios from 'axios';
+
 
 function Signup() {
     const [email, setEmail] = useState('');
     const [name,setName]=useState('')
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSignup = async (e) => {
         e.preventDefault();
@@ -18,6 +20,7 @@ function Signup() {
         try {
             const response = await axios.post('http://localhost:90/register', {name, email, password });
             alert(response.data);
+            navigate('/login');
             // Handle successful signup (e.g., redirect to login)
         } catch (error) {
             alert(error.response.data);
@@ -26,8 +29,6 @@ function Signup() {
 
     return (
         <div className="container custom-container">
-            <div className="row justify-content-center mt-5">
-                <div className="col-md-6">
                     <div className="card custom-card">
                         <div className="card-body custom-card-body">
                             <h5 className="card-title custom-card-title">Sign Up</h5>
@@ -54,8 +55,6 @@ function Signup() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     );
 }
 

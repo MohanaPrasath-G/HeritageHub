@@ -32,6 +32,7 @@ const User=require('../models/user')
       })
 })
 route.post('/register', async (req,res)=>{
+    console.log("Body:",req.body)
     const user=await User.findOne({email:req.body.email})
     if(user){
         return res.status(500).json("user already exist.")

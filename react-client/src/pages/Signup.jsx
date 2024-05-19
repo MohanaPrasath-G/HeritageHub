@@ -35,9 +35,9 @@ function Signup() {
                         <div className="card-body custom-card-body">
                             <h5 className="card-title custom-card-title">Sign Up</h5>
                             <form onSubmit={handleSignup}>
-                            <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Name</label>
-                                    <input type="text" className="form-control custom-form-control" id="exampleInputName" value={name} onChange={(e) => setName(e.target.value)} required />
+                                <div className="mb-3">
+                                    <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Email address</label>
+                                    <input type="email" className="form-control custom-form-control" id="exampleInputEmail1" value={name} onChange={(e) => setName(e.target.value)} required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label custom-form-label">Email address</label>

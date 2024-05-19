@@ -1,5 +1,5 @@
 .upload-banner {
-    position: relative;
+    /* position: relative; */
     min-height: 50vh;
     background: url('../assets/upload-bg.jpg') no-repeat;
     background-attachment: fixed;
